@@ -89,6 +89,7 @@ try {
         let body = '';
         res.on('data', data => body += data);
         res.on('end', () => console.log('result:' + body));
+        req.on('error', error => console.error(error));
       });
 
   req.write(request);
