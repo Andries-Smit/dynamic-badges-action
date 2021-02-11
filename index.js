@@ -87,6 +87,7 @@ try {
       },
       res => {
         console.log("statusCode: ", res.statusCode); 
+        console.log("statusMessage: ", res.statusMessage); 
         let body = '';
         res.on('data', data => body += data);
         res.on('end', () => console.log('result:' + body));
