@@ -86,12 +86,12 @@ try {
         }
       },
       res => {
-        console.log("statusCode: ", res.statusCode); 
-        console.log("statusMessage: ", res.statusMessage); 
+        if (res.statusCode < 200 || res.statusCode >= 400) {
+            core.setFailed('Response status code: ' +  res.statusCode + ', status message: ' +  res.statusMessage);
+        }
         let body = '';
         res.on('data', data => body += data);
         res.on('end', () => console.log('result:' + body));
-        req.on('error', error => console.error(error));
       });
 
   req.write(request);
