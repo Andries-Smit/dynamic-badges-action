@@ -87,7 +87,7 @@ try {
       },
       res => {
         if (res.statusCode < 200 || res.statusCode >= 400) {
-            core.setFailed('Response status code: ' +  res.statusCode + ', status message: ' +  res.statusMessage);
+            core.setFailed('Failt to create gist, response status code: ' +  res.statusCode + ', status message: ' +  res.statusMessage);
         }
         let body = '';
         res.on('data', data => body += data);
